@@ -1,0 +1,41 @@
+/releases
+/merlin-win
+/reports
+/temp
+/workspaces
+/ws
+/plugins_bin
+/cache
+/.classpath
+/.project
+/cache.ccf
+/merlin
+/merlin/*
+/h2Database
+/conf/database_settings.conf
+<<<<<<< HEAD
+/conf/mysql_settings.conf
+/conf/h2_settings.conf
+=======
+>>>>>>> 544ef265f6c115bd3c2ebcaa0041e7a122d578a7
+h2*.db
+java_pid*.*
+*.log
+*.old
+*.bak
+Workbench_databases/*.bak
+
+
+#eclipse
+.settings
+
+#build folders
+/target
+/test-bin
+/test_bin/
+
+#temp
+GetMerlinInfo.jar
+out.txt
+plugins_src/pt/uminho/sysbio/merlin/core/GetMerlinInfo.java
+gff_error_report.txt

@@ -1,0 +1,27 @@
+cd D:\workspaces\maven\other_resources\mysql_clean\bin
+
+original
+	local
+		./mysqldump --single-transaction=TRUE --skip-add-locks=TRUE --lock-tables=FALSE --insert-ignore=TRUE --no-create-inf=TRUE --compatible=ansi,no_table_options,no_field_options,no_key_options --hex-blob --skip-opt --user=odias --password=odias# transportersData directions general_equation metabolites metabolites_ontology synonyms taxonomy_data tc_numbers tc_numbers_has_transport_systems tcdb_registries transport_systems transport_types transported_metabolites_directions > ../../../merlin-core/utilities/sysbio_metabolites_backup.sql
+	server
+		/opt/mysql/5.7.9/bin/mysqldump --host=192.168.1.85 --skip-add-locks=TRUE --lock-tables=FALSE --insert-ignore=TRUE  --no-create-info=TRUE --compatible=ansi,no_table_options,no_field_options,no_key_options --hex-blob --skip-opt --user=odias --password=odias# transportersData directions general_equation metabolites metabolites_ontology synonyms taxonomy_data tc_numbers tc_numbers_has_transport_systems tcdb_registries transport_systems transport_types transported_metabolites_directions > sysbio_metabolites_backup.sql
+
+INSERT IGNORE 
+ignora linhas duplicadas e resolve quase todos os problemas
+
+##--skip-quote-names
+##--extended-insert=TRUE
+##--complete-insert=TRUE
+###--skip-opt in the beggining to avoid removing extended inserts
+
+	local
+		mysqldump --skip-opt --extended-insert=TRUE --single-transaction=TRUE --complete-insert=TRUE --skip-add-locks=TRUE --lock-tables=FALSE --insert-ignore=FALSE --no-create-info=TRUE --compatible=ansi,no_table_options,no_field_options,no_key_options --skip-quote-names --hex-blob --user=odias --password=odias# transportersData directions general_equation metabolites metabolites_ontology synonyms taxonomy_data tc_numbers tc_numbers_has_transport_systems tcdb_registries transport_systems transport_types transported_metabolites_directions > ../../../merlin-core/utilities/sysbio_metabolites_backup.sql
+	server
+		/opt/mysql/5.7.9/bin/mysqldump --skip-opt --extended-insert=TRUE --single-transaction=TRUE --complete-insert=TRUE --skip-add-locks=TRUE --lock-tables=FALSE --insert-ignore=FALSE --no-create-info=TRUE --compatible=ansi,no_table_options,no_field_options,no_key_options --skip-quote-names --hex-blob --user=odias --password=odias# transportersData directions general_equation metabolites metabolites_ontology synonyms taxonomy_data tc_numbers tc_numbers_has_transport_systems tcdb_registries transport_systems transport_types transported_metabolites_directions > sysbio_metabolites_backup.sql
+
+		
+SET PASSWORD FOR 'odias'@'%' = PASSWORD('odias##');
+SET PASSWORD FOR 'adias'@'%' = PASSWORD('adias#');
+
+CREATE USER 'odias'@'localhost' IDENTIFIED BY 'odias##';
+GRANT ALL PRIVILEGES ON * . * TO 'odias'@'localhost';

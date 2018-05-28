@@ -1,0 +1,4 @@
+1	ALTER TABLE `projects` ADD COLUMN `organism_name` VARCHAR(200) NULL DEFAULT '-1' AFTER `version`;
+2	ALTER TABLE `projects` ADD COLUMN `organism_lineage` VARCHAR(1000) NULL DEFAULT '-1' AFTER `organism_name`;
+3	ALTER TABLE `reaction` MODIFY `lowerBound` FLOAT;
+4	ALTER TABLE `reaction` MODIFY `upperBound` FLOAT;
